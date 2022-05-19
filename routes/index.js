@@ -1,4 +1,5 @@
 var express = require('express');
+var cookieParser = require('cookie-parser');
 
 var router = express.Router();
 
@@ -6,10 +7,13 @@ var router = express.Router();
 
 
 
+router.use(cookieParser());
+
 
 const fs = require('fs')
 router.get('/leer',function(req,res)
 {
+	 console.log(req.cookies)
      var path = req.query.path;
      var pos = req.query.pos || 0;
      var lenght = req.query.lenght || 16; 
@@ -46,41 +50,26 @@ router.get('/leer',function(req,res)
 		            slice(0, bytes).toString());
 		});
        });
-        
-
-	/*fs.readFile('/home/rvillalva/Downloads/testloco.txt', 'utf8' , (err, data) => {
-	  if (err) {
-	    console.error(err)
-	    return
-	  }
-	  res.send(data);
-	})*/
-	
-	 
+        	 
 });
 
 router.post('/escribir',function(req,res,next)
 
 {
-
     //console.log(req);
     console.log(req.body);
   
     fs.appendFile(req.body.path, req.body.buffer , function (err) {
     if (err) throw err;
-    console.log('Saved!');
- 
-	
-	
+   		 console.log('Saved!');
 
-});
-        
-        
+	});
+            
          res.send('Se guardo');
 	
-	
-	 
 });
 
 
-module.exports = router;
+app.listen(3000, () => {
+	console.log(`Example app listening at http://localhost:${port}`)
+  }) 
