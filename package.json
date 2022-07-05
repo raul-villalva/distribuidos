@@ -12,17 +12,6 @@
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "mongodb": "^3.3.5",
-    "mongoose": "^5.7.13",
-    "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11"
-  },
-  "devDependencies": {
-    "istanbul": "^0.4.5",
-    "jasmine": "^3.5.0",
-    "jasmine-console-reporter": "^3.1.0",
-    "jasmine-node": "^3.0.0",
-    "jasmine-supertest": "^1.0.0",
-    "supertest": "^4.0.2"
+    "morgan": "~1.9.1"
   }
 }
